@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Exam in progress — JEE Mock Test</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="exam-body">
+
+<header class="exam-header">
+  <span class="test-name" id="testNameEl">Test</span>
+  <div class="header-right">
+    <span class="timer" id="timerEl">00:00:00</span>
+    <button class="btn-small" id="paletteToggleBtn" type="button">Questions ▤</button>
+    <button class="btn-small btn-submit" id="headerSubmitBtn" type="button">Submit</button>
+  </div>
+</header>
+
+<div class="exam-main">
+
+  <main class="question-panel">
+    <div class="question-meta">
+      <span class="q-index" id="qIndexEl">Question 1 of 1</span>
+      <span id="qSubjectMarksEl">Physics · +4 / -1</span>
+      <span class="q-time">Time on this question: <span id="qTimeEl">00:00</span></span>
+    </div>
+
+    <div class="question-scroll">
+      <p class="question-text" id="questionTextEl">Loading…</p>
+
+      <div id="mcqOptionsWrap" class="options-list hidden"></div>
+
+      <div id="numInputWrap" class="numerical-input-wrap hidden">
+        <label for="numAnswerInput">Enter numerical answer</label>
+        <input type="text" inputmode="decimal" id="numAnswerInput" placeholder="e.g. 12.5 or -3">
+      </div>
+    </div>
+
+    <div class="action-bar">
+      <button class="btn-action prev-btn" id="prevBtn" type="button">◀ Previous</button>
+      <button class="btn-action clear-btn" id="clearBtn" type="button">Clear Response</button>
+      <button class="btn-action mark-btn" id="markBtn" type="button">Mark for Review &amp; Next</button>
+      <button class="btn-action save-next-btn" id="saveNextBtn" type="button">Save &amp; Next ▶</button>
+    </div>
+  </main>
+
+  <aside class="palette-panel" id="palettePanel">
+    <div class="palette-legend">
+      <div class="legend-item"><span class="legend-dot" style="background:var(--color-not-visited-bg)"></span>Not Visited</div>
+      <div class="legend-item"><span class="legend-dot" style="background:var(--color-not-answered)"></span>Not Answered</div>
+      <div class="legend-item"><span class="legend-dot" style="background:var(--color-answered)"></span>Answered</div>
+      <div class="legend-item"><span class="legend-dot" style="background:var(--color-marked)"></span>Marked</div>
+      <div class="legend-item"><span class="legend-dot" style="background:var(--color-answered-marked)"></span>Ans+Marked</div>
+    </div>
+    <div class="subject-tabs" id="subjectTabs"></div>
+    <div class="palette-grid-wrap">
+      <div class="palette-grid" id="paletteGrid"></div>
+    </div>
+    <div class="palette-footer">
+      <button class="btn" id="drawerSubmitBtn" type="button">Submit Test</button>
+    </div>
+  </aside>
+
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+</div>
+
+<!-- Submit confirmation modal -->
+<div class="modal-overlay hidden" id="submitModal">
+  <div class="modal-box">
+    <h3>Submit test?</h3>
+    <p style="font-size:0.9rem; color:var(--color-text-muted);">Once submitted, the timer stops and you cannot change your answers.</p>
+    <div class="modal-stats" id="modalStats"></div>
+    <div class="modal-actions">
+      <button class="btn secondary" id="cancelSubmitBtn">Cancel</button>
+      <button class="btn" id="confirmSubmitBtn" style="background:#c62828; border-color:#c62828;">Submit Test</button>
+    </div>
+  </div>
+</div>
+
+<div id="timerToastWrap"></div>
+
+<script src="js/storage.js"></script>
+<script src="js/exam.js"></script>
+</body>
+</html>

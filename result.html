@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test Result — JEE Mock Test</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <h1>Test Result</h1>
+</header>
+
+<div class="page-wrap">
+
+  <div class="score-banner">
+    <div class="score-num" id="scoreNumEl">0 / 0</div>
+    <div class="score-lbl" id="scoreLblEl">Score</div>
+  </div>
+
+  <div class="card">
+    <div class="result-summary-grid" id="summaryGrid"></div>
+    <p id="ungradedNote" style="font-size:0.85rem; color:var(--color-text-muted);"></p>
+  </div>
+
+  <div class="card">
+    <h2>Question-wise details</h2>
+    <div class="table-scroll">
+      <table class="result-table" id="resultTable">
+        <thead>
+          <tr><th>Q</th><th>Subject</th><th>Status</th><th>Time</th><th>Marks</th></tr>
+        </thead>
+        <tbody id="resultTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Copy result for AI analysis</h2>
+    <p style="font-size:0.9rem; color:var(--color-text-muted);">
+      Copy this and paste it into ChatGPT/Gemini/Claude for a detailed breakdown of your mistakes.
+    </p>
+    <div class="btn-row" style="align-items:center;">
+      <button class="btn" id="copyBtn">Copy Result</button>
+      <span class="copy-feedback hidden" id="copyFeedback">✅ Copied to clipboard</span>
+    </div>
+    <textarea id="copyOutput" readonly style="margin-top:12px;"></textarea>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn secondary" id="newTestBtn">Start a New Test</button>
+  </div>
+
+</div>
+
+<script src="js/storage.js"></script>
+<script src="js/result.js"></script>
+</body>
+</html>
