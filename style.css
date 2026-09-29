@@ -518,6 +518,7 @@ pre.format-example {
 .palette-footer .btn { width: 100%; }
 
 /* Drawer toggle button (mobile only) */
+#paletteToggleBtn,
 .palette-toggle-btn { display: none; }
 
 .drawer-overlay {
@@ -678,6 +679,7 @@ textarea#copyOutput {
 
   .palette-panel.open { transform: translateX(0); }
 
+  #paletteToggleBtn,
   .palette-toggle-btn { display: inline-flex; }
 
   .drawer-overlay.open {
