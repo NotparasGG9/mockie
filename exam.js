@@ -271,7 +271,6 @@
     const currentlyMarked = state.status[q.id] === 'marked' || state.status[q.id] === 'answered-marked';
 
     if (currentlyMarked) {
-      // toggle off
       state.status[q.id] = hasAnswer ? 'answered' : 'not-answered';
     } else {
       state.status[q.id] = hasAnswer ? 'answered-marked' : 'marked';
@@ -362,7 +361,7 @@
     Storage.saveExamState(state);
   }
 
-  setInterval(() => persist(), 5000); // periodic safety save every 5s
+  setInterval(() => persist(), 5000);
 
   // ---- Submit flow ----------------------------------------------------------
   function computeCounts() {
@@ -435,12 +434,15 @@
         status = 'Ungraded';
         ungraded++;
       } else {
-        let isCorrect;
+        let isCorrect = false;
         if (q.type === 'NUM') {
-          isCorrect = Math.abs(parseFloat(userAns) - parseFloat(q.answer)) < 0.01;
+          const userNum = parseFloat(String(userAns).trim());
+          const correctNum = parseFloat(String(q.answer).trim());
+          isCorrect = !isNaN(userNum) && !isNaN(correctNum) && Math.abs(userNum - correctNum) < 0.01;
         } else {
-          isCorrect = String(userAns).toUpperCase() === String(q.answer).toUpperCase();
+          isCorrect = String(userAns).trim().toUpperCase() === String(q.answer).trim().toUpperCase();
         }
+
         if (isCorrect) {
           status = 'Correct';
           correct++;
